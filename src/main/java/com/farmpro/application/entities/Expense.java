@@ -6,22 +6,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Land")
-public class Land {
+public class Expense {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
-    private int size;
-    private long cropId;
-    private int cropType;
-
-    private int stage;
-
+    private long landId;
+    private String expenseType;
+    private long amount;
+    private Date date;
 }

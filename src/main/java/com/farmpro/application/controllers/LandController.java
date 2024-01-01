@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/land")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000") // Allow requests from localhost:3000
 public class LandController {
 
     private final LandService landService;
@@ -21,6 +22,7 @@ public class LandController {
         return new ResponseEntity<List<Land>>(retrievedLandList,HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000") // Allow requests from localhost:3000
     @GetMapping("/{id}")
     public ResponseEntity<Land> getLandById(@PathVariable("id") Long id){
         Land retrievedLand = landService.getLandById(id);
