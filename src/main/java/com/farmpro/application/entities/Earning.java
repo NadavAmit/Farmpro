@@ -18,7 +18,7 @@ public class Earning {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private long landId;
+    private long fieldId;
     private String earningType;
     private long amount;
     private Date date;

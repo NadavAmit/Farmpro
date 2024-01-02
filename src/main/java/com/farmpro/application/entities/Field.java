@@ -11,8 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Land")
-public class Land {
+@Table(name = "Field")
+public class Field {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

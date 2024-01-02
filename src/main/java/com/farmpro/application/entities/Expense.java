@@ -19,7 +19,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private long landId;
+    private long fieldId;
     private String expenseType;
     private long amount;
     private Date date;
