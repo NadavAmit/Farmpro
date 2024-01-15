@@ -11,10 +11,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/field")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000") // Allow requests from localhost:3000
+//@CrossOrigin(origins = "http://localhost:3000") // Allow requests from localhost:3000
 public class FieldController {
 
     private final FieldService fieldService;
+
 
     @GetMapping({"", "/"})
     public ResponseEntity<List<Field>> getAllFields(){
@@ -22,7 +23,6 @@ public class FieldController {
         return new ResponseEntity<List<Field>>(retrievedFieldList,HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "http://localhost:3000") // Allow requests from localhost:3000
     @GetMapping("/{id}")
     public ResponseEntity<Field> getFieldById(@PathVariable("id") Long id){
         Field retrievedField = fieldService.getFieldById(id);

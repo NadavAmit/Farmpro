@@ -18,9 +18,12 @@ public class Earning {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private long fieldId;
     private String earningType;
     private long amount;
     private Date date;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "field_id")
+    private Field field;
 
 }

@@ -6,21 +6,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Expense {
+@Table(name = "activity")
+public class Activity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String expenseType;
-    private long amount;
-    private Date date;
+    private String date;
+    private String status;
+    private int cropType;
+    private int fieldSize;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "field_id")

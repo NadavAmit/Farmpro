@@ -11,6 +11,7 @@ import java.util.NoSuchElementException;
 @Service
 @RequiredArgsConstructor
 public class FieldService {
+
     private final FieldRepository fieldRepository;
 
     public List<Field> getAllFields() {
