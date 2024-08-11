@@ -1,8 +1,6 @@
 package com.farmpro.application.controllers;
 
-import com.farmpro.application.dto.EarningDTO;
 import com.farmpro.application.dto.ExpenseDTO;
-import com.farmpro.application.entities.Earning;
 import com.farmpro.application.entities.Expense;
 import com.farmpro.application.entities.Field;
 import com.farmpro.application.services.ExpenseService;
@@ -79,11 +77,17 @@ public class ExpenseController {
     }
 
     private Expense mapToEntity(ExpenseDTO expenseDTO,Field field) {
-        Expense expense = new Expense();
-        expense.setDate(expenseDTO.getDate());
-        expense.setExpenseType(expenseDTO.getExpenseType());
-        expense.setAmount(expenseDTO.getAmount());
-        expense.setField(field);
-        return expense;
+        return Expense.builder()
+                .date(expenseDTO.getDate())
+                .expenseType(expenseDTO.getExpenseType())
+                .amount(expenseDTO.getAmount())
+                .field(field)
+                .build();
+//        Expense expense = new Expense();
+//        expense.setDate(expenseDTO.getDate());
+//        expense.setExpenseType(expenseDTO.getExpenseType());
+//        expense.setAmount(expenseDTO.getAmount());
+//        expenseDTO.setFieldId();
+//        return  expenseDTO;
     }
 }

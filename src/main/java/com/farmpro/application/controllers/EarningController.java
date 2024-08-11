@@ -30,7 +30,7 @@ public class EarningController {
     @GetMapping({"", "/"})
     public ResponseEntity<List<EarningDTO>> getAllEarnings(){
         List<Earning> retrievedEarningsList =  earningService.getAllEarnings();
-        List<EarningDTO> earningDTOList =retrievedEarningsList.stream().map(this::mapToDTO).toList();
+        List<EarningDTO> earningDTOList = retrievedEarningsList.stream().map(this::mapToDTO).toList();
         return new ResponseEntity<List<EarningDTO>>(earningDTOList,HttpStatus.OK);
     }
 

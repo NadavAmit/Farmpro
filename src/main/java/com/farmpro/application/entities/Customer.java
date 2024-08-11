@@ -11,16 +11,10 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Expense {
-
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String expenseType;
-    private long amount;
-    private Date date;
+    private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "field_id")
-    private Field field;
 }

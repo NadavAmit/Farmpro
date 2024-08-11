@@ -2,7 +2,10 @@ package com.farmpro.application.controllers;
 
 import com.farmpro.application.entities.Field;
 import com.farmpro.application.services.FieldService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +27,19 @@ public class FieldController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Field> getFieldById(@PathVariable("id") Long id){
+    public ResponseEntity<Field> getFieldById(@PathVariable("id") Long id, HttpServletResponse response){
         Field retrievedField = fieldService.getFieldById(id);
-        return new ResponseEntity<Field>(retrievedField,HttpStatus.OK);
+
+        // Create a new cookie
+        Cookie cookie = new Cookie("yourCookieName", "yourCookieValue");
+        cookie.setHttpOnly(true);
+
+        response.addCookie(cookie);
+        HttpHeaders headers = new HttpHeaders();
+
+
+
+        return new ResponseEntity<>(retrievedField, headers, HttpStatus.OK);
     }
 
     @PostMapping({"", "/"})
